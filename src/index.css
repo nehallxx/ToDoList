@@ -1,0 +1,202 @@
+* {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #202124;
+}
+
+h1, h2, h3, input, button {
+  font-family: 'Press Start 2P', system-ui;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6)), 
+              url('todo.jpg') no-repeat center center/cover;
+  position: relative;
+  gap: 20px;
+  overflow: hidden;
+}
+
+#root::before, #root::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
+}
+
+#root::before {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(255, 99, 71, 0.4), rgba(255, 99, 71, 0.1));
+  top: 10%;
+  left: 20%;
+  z-index: 0;
+}
+
+#root::after {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 193, 7, 0.4), rgba(255, 193, 7, 0.1));
+  bottom: 10%;
+  right: 10%;
+  z-index: 0;
+}
+
+.backgroundIcon {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: url('./images/decorative-image.png') no-repeat center center/contain;
+  top: 20%;
+  right: 10%;
+  z-index: 0;
+  opacity: 0.15;
+}
+
+.backgroundText {
+  position: absolute;
+  font-size: 5em;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.4);
+  top: 50%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  white-space: nowrap;
+  opacity: 0.2;
+  font-family: 'Press Start 2P', system-ui;
+}
+
+.decorativeShape {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(54, 162, 235, 0.5), rgba(54, 162, 235, 0.1));
+  top: 60%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 0;
+  opacity: 0.2;
+}
+
+header {
+  display: flex;
+  align-items: stretch;
+  z-index: 1;
+}
+
+header, .main {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 20px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+header input {
+  flex: 1;
+  border-radius: 25px;
+  outline: none;
+  width: 100%;
+  border: none; /* Remove border */
+  background: rgba(255, 255, 255, 0.9);
+}
+
+header button {
+  border-radius: 25px;
+  background: linear-gradient(to right, #ff6f61, #ff9472);
+  color: white;
+  transition: background-color 200ms, opacity 200ms;
+  cursor: pointer;
+  padding: 14px 18px;
+  border: none;
+  outline: none;
+}
+
+header button:hover {
+  opacity: 0.9;
+  background-color: #ff3b2e;
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 1em;
+  color: #333;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1;
+}
+
+.todoItem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 200ms;
+}
+
+.todoItem:hover {
+  transform: translateY(-5px);
+}
+
+.todoItem p {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.todoItem p::before {
+  content: url('https://img.icons8.com/ios-filled/50/000000/checklist.png');
+  margin-right: 10px;
+  filter: invert(25%) sepia(60%) saturate(7493%) hue-rotate(360deg) brightness(96%) contrast(94%);
+}
+
+.actionsContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.actionsContainer button {
+  transition: opacity 200ms;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.actionsContainer button:hover {
+  opacity: 0.7;
+}
+
+.actionsContainer button img {
+  width: 24px;
+  height: 24px;
+}
+
+@media (min-width: 640px) {
+  header button, header input {
+    font-size: 1.2em;
+  }
+
+  p {
+    font-size: 1.1em;
+  }
+}
